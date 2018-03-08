@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1699d3192f183e4689e509c7fbfe93f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletControl: {fileID: 1466030432127642, guid: 574f4d420a2ee28489ba9539de3b715e,
+    type: 2}
   rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!212 &212077097946693920
 SpriteRenderer:

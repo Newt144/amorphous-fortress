@@ -12,6 +12,7 @@ public class BallistaControl : MonoBehaviour {
         public Vector2 speed;
         public Vector2 direction;
         public int timeAlive;
+        public float max_hp;
 
         public projectileInfo() { }
 
@@ -26,8 +27,10 @@ public class BallistaControl : MonoBehaviour {
 
     }
 
+    public GameObject bulletControl;
     Vector3 mousePosition;
     public Quaternion rot;
+    public Vector3 direction;
     // The ballista itself remembers the stats of the projectile, so it is easier
     // to modify the projectile and just have the ballista create copies of it.
     public static projectileInfo ballistaProjectiles;
@@ -35,13 +38,15 @@ public class BallistaControl : MonoBehaviour {
 
     private void Start()
     {
+        bulletControl = Resources.Load("Prefabs/Bullet.prefab") as GameObject;
         // Default values, may be removed later
-        ballistaProjectiles = new projectileInfo();
-        ballistaProjectiles.objType = new GameObject("Bullet");
-        ballistaProjectiles.dmg = 1;
-        ballistaProjectiles.speed = new Vector2(1, 1);
-        ballistaProjectiles.direction = new Vector2(rot.x, rot.y);
-        ballistaProjectiles.timeAlive = 20;
+        ballistaProjectiles             = new projectileInfo();
+        ballistaProjectiles.objType     = new GameObject("Bullet");
+        ballistaProjectiles.dmg         = 1;
+        ballistaProjectiles.speed       = new Vector2(1, 1);
+        ballistaProjectiles.direction   = new Vector2(rot.x, rot.y);
+        ballistaProjectiles.timeAlive   = 20;
+        ballistaProjectiles.max_hp      = 1;
     }
 
     void Update () {
@@ -62,7 +67,8 @@ public class BallistaControl : MonoBehaviour {
 		 * will get some funky rotations.
 		 */
 		rot = Quaternion.LookRotation(transform.position - mousePosition, Vector3.forward ); // Calculate the rotation angle
-		print("Z rot angle: " + rot.eulerAngles.z + ", Z rot: " + rot.z);
+        direction = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+		//print("Z rot angle: " + rot.eulerAngles.z + ", Z rot: " + rot.z);
 		transform.rotation = rot;
 
         // Setting the projectile direction to align with the pointed angle
@@ -81,10 +87,16 @@ public class BallistaControl : MonoBehaviour {
     /**
      * This will create a instance of the projectile prefab with the remembered stats.
      */
-    static void createProjectile()
+    public void createProjectile()
     {
-        projectileInfo instanceParams = new projectileInfo(ballistaProjectiles);
-        //GameObject.Find("Bullet").dmg;
-        //Instantiate(Resources.Load());
+        /*
+        bulletControl.GetComponent<BulletBehavior>().dmg           = ballistaProjectiles.dmg;
+        bulletControl.GetComponent<BulletBehavior>().timeAlive     = ballistaProjectiles.timeAlive;
+        bulletControl.GetComponent<ProjectileMovement>().speed     = ballistaProjectiles.speed;
+        bulletControl.GetComponent<ProjectileMovement>().direction = ballistaProjectiles.direction;
+        bulletControl.GetComponent<HealthScript>().max_hp          = ballistaProjectiles.max_hp;
+        */
+        //GameObject bulletPrefab = (GameObject)Instantiate(Resources.Load("Bullet")) ;
+        Instantiate(bulletControl, direction, rot);
     }
 }

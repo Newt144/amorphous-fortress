@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4485712922758648}
   - component: {fileID: 212686016982473192}
+  - component: {fileID: 50168515622931682}
   - component: {fileID: 61601531443001218}
   - component: {fileID: 114898566654299136}
   - component: {fileID: 114978099883560504}
@@ -44,6 +45,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50168515622931682
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1466030432127642}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 3
 --- !u!61 &61601531443001218
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -80,9 +101,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d44f64bd722a1f4aa6f18c36121d0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 1
+  max_hp: 0
   current_hp: 0
-  isEnemy: 1
+  isEnemy: 0
 --- !u!114 &114898566654299136
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -94,8 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7991a1961cc3f640b36f9d79873fb58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
+  speed: {x: 1, y: 1}
+  direction: {x: 0.013438381, y: -0.017549902}
 --- !u!114 &114978099883560504
 MonoBehaviour:
   m_ObjectHideFlags: 1
