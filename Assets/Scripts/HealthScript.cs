@@ -19,18 +19,28 @@ public class HealthScript : MonoBehaviour {
      */
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        BulletBehavior projectile = collision.gameObject.GetComponent<BulletBehavior>();
-
+        BulletBehavior projectile   = collision.gameObject.GetComponent<BulletBehavior>();
+        HealthScript colliderHealth = collision.gameObject.GetComponent<HealthScript>();
+        print(gameObject.name + " collided with " + collision.gameObject.name);
         if(projectile != null)
         {
             if(projectile.isEnemyShot != isEnemy)
             {
+                print(gameObject.name + " was just hit for " + projectile.dmg + " damage!");
                 current_hp -= projectile.dmg;
-
-                if (current_hp <= 0)
-                    Destroy(gameObject);
+                print(gameObject.name + "'s current hp: " + current_hp);
             }
+        } else if(colliderHealth.isEnemy){
+            // Bullet's hp acts as the "pierce" stat
+            print(gameObject.name + " collided, taking off 1 pierce");
+            current_hp--;
         }
 
+        // Delete the object when hp is 0 or less.
+        if (current_hp <= 0)
+        {
+            print("Delete " + gameObject.name);
+            Destroy(gameObject);
+        }
     }
 }
