@@ -101,8 +101,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d44f64bd722a1f4aa6f18c36121d0cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  max_hp: 0
-  current_hp: 0
+  max_hp: 1
+  current_hp: 1
   isEnemy: 0
 --- !u!114 &114898566654299136
 MonoBehaviour:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: {x: 1, y: 1}
-  direction: {x: 0.013438381, y: -0.017549902}
+  direction: {x: 0.03583947, y: 0.020369332}
 --- !u!114 &114978099883560504
 MonoBehaviour:
   m_ObjectHideFlags: 1

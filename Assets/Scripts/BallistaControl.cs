@@ -38,7 +38,7 @@ public class BallistaControl : MonoBehaviour {
 
     private void Start()
     {
-        bulletControl = Resources.Load("Prefabs/Bullet.prefab") as GameObject;
+        //bulletControl = Resources.Load("Prefabs/Bullet") as GameObject;
         // Default values, may be removed later
         ballistaProjectiles             = new projectileInfo();
         ballistaProjectiles.objType     = new GameObject("Bullet");
@@ -74,6 +74,7 @@ public class BallistaControl : MonoBehaviour {
         // Setting the projectile direction to align with the pointed angle
         ballistaProjectiles.direction = new Vector2(rot.x, rot.y);
 
+
 		// Since we only worry about the z rotation, x and y stays at 0. 2D top-down woooo.
 		transform.eulerAngles = new Vector3(0, 0,transform.eulerAngles.z); // Do not rotate on x and y
 
@@ -89,13 +90,13 @@ public class BallistaControl : MonoBehaviour {
      */
     public void createProjectile()
     {
-        /*
+        
         bulletControl.GetComponent<BulletBehavior>().dmg           = ballistaProjectiles.dmg;
         bulletControl.GetComponent<BulletBehavior>().timeAlive     = ballistaProjectiles.timeAlive;
         bulletControl.GetComponent<ProjectileMovement>().speed     = ballistaProjectiles.speed;
         bulletControl.GetComponent<ProjectileMovement>().direction = ballistaProjectiles.direction;
         bulletControl.GetComponent<HealthScript>().max_hp          = ballistaProjectiles.max_hp;
-        */
+
         //GameObject bulletPrefab = (GameObject)Instantiate(Resources.Load("Bullet")) ;
         Instantiate(bulletControl, direction, rot);
     }
