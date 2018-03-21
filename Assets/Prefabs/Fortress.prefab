@@ -37,7 +37,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4912075959830168}
   - component: {fileID: 212077097946693920}
-  - component: {fileID: 114966874127411156}
   m_Layer: 0
   m_Name: Ballista
   m_TagString: Player
@@ -52,7 +51,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1463333084380114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 5}
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children:
   - {fileID: 4912075959830168}
@@ -81,7 +80,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -97,20 +96,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.33, y: 0.33}
   m_EdgeRadius: 0
---- !u!114 &114966874127411156
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1866039783078840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d1699d3192f183e4689e509c7fbfe93f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletControl: {fileID: 1466030432127642, guid: 574f4d420a2ee28489ba9539de3b715e,
-    type: 2}
-  rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!212 &212077097946693920
 SpriteRenderer:
   m_ObjectHideFlags: 1
